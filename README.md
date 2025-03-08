@@ -1,4 +1,4 @@
-# Aman Kumar Thakur - Personal Website
+# My Personal Website
 
 Welcome to my personal website! 🚀
 
