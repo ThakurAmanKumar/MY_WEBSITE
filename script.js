@@ -139,6 +139,22 @@ const observer = new IntersectionObserver((entries, observer) => {
   });
 }, { threshold: 0.2 }); // Trigger when 20% of section is visible
 
+document.addEventListener("DOMContentLoaded", () => {
+  // Create a script element for JSON-LD structured data
+  const jsonLdScript = document.createElement("script");
+  jsonLdScript.type = "application/ld+json";
+  jsonLdScript.text = JSON.stringify({
+    "@context": "https://schema.org",
+    "@type": "WebSite",
+    "name": "Aman Kumar Thakur",
+    "url": "https://amankumarthakur.com.np"
+  });
+
+  // Append it to the <head> section
+  document.head.appendChild(jsonLdScript);
+});
+
+
 // Observe all sections for staggered animation
 document.querySelectorAll('section').forEach(section => {
   observer.observe(section);
