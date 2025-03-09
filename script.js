@@ -25,7 +25,7 @@ contactForm.addEventListener("submit", function(event) {
   // Basic email format validation
   const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
   if (!emailPattern.test(email)) {
-    alert("er.thakuramankumar@gmail.com");
+    alert("Please fill out all fields.");
     return;
   }
 
@@ -119,6 +119,7 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     });
 });
+
 
 
 
