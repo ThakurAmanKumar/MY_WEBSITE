@@ -90,6 +90,7 @@ showCredentialLinks.forEach(link => {
     }
   });
 });
+
 // Toggle the mobile menu visibility
 function toggleMenu() {
   const menuToggle = document.querySelector('.menu-toggle');
@@ -98,6 +99,26 @@ function toggleMenu() {
   menuToggle.classList.toggle('active');
   navMenu.classList.toggle('show');
 }
+
+// Close menu when clicking outside or on a menu item
+document.addEventListener('DOMContentLoaded', () => {
+    const menuToggle = document.querySelector('.menu-toggle');
+    const navMenu = document.querySelector('nav ul');
+
+    document.querySelectorAll('nav ul li a').forEach(link => {
+        link.addEventListener('click', () => {
+            navMenu.classList.remove('show');
+            menuToggle.classList.remove('active');
+        });
+    });
+
+    document.addEventListener('click', (event) => {
+        if (!navMenu.contains(event.target) && !menuToggle.contains(event.target)) {
+            navMenu.classList.remove('show');
+            menuToggle.classList.remove('active');
+        }
+    });
+});
 
 
 
