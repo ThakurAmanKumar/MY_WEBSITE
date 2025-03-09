@@ -108,6 +108,13 @@ nav ul li a:hover {
       text-align: center;
   }
 
+  /* Prevents horizontal scrolling */
+  body {
+      overflow-x: hidden;
+  }
+}
+
+
 /* Hero Section */
 .hero {
   background-color: #00bcd4;
