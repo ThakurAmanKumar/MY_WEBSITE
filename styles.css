@@ -72,41 +72,41 @@ nav ul li a:hover {
 
 /* Mobile Menu Styles */
 .menu-toggle {
-    display: none;
-    font-size: 2rem;
-    color: white;
-    cursor: pointer;
-    position: absolute;
-    right: 20px;
-    top: 15px;
-    z-index: 1100;
+  display: none;
+  font-size: 2rem;
+  color: white;
+  cursor: pointer;
+  position: absolute;
+  right: 20px;
+  top: 15px;
+  z-index: 1100;
 }
 
 @media (max-width: 768px) {
-    .menu-toggle {
-        display: block;
-    }
+  .menu-toggle {
+      display: block;
+  }
 
-    nav ul {
-        display: none;
-        flex-direction: column;
-        background-color: #00bcd4;
-        position: absolute;
-        width: 100%;
-        top: 50px;
-        left: 0;
-        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
-    }
+  nav ul {
+      display: none;
+      flex-direction: column;
+      background-color: #00bcd4;
+      position: absolute;
+      width: 100%;
+      top: 50px;
+      left: 0;
+      right: 0; /* Prevents extra space on right */
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+  }
 
-    nav ul.show {
-        display: flex; /* Use flex instead of block for better alignment */
-    }
+  nav ul.show {
+      display: flex; /* Use flex instead of block for better alignment */
+  }
 
-    nav ul li {
-        margin: 10px 0;
-        text-align: center;
-    }
-}
+  nav ul li {
+      margin: 10px 0;
+      text-align: center;
+  }
 
 /* Hero Section */
 .hero {
@@ -598,3 +598,21 @@ section > *.fade-in {
   transform: translateY(0);
 }
 
+/* Ensure body and html do not exceed the screen width */
+body, html {
+  overflow-x: hidden; /* Prevents horizontal scroll */
+  margin: 0;
+  padding: 0;
+  width: 100%;
+}
+
+/* Fix menu width and positioning */
+nav ul {
+  width: 100vw; /* Ensures it takes full viewport width */
+  left: 0; /* Aligns it correctly */
+}
+
+/* Make sure .menu-toggle does not cause overflow */
+.menu-toggle {
+  right: 15px; /* Adjust position to prevent horizontal shift */
+}
