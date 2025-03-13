@@ -25,5 +25,9 @@ This is my personal portfolio website, showcasing my projects, certifications, a
 - **Email**: [er.thakuramankumar@gmail.com](mailto:er.thakuramankumar@gmail.com)
 - **LinkedIn**: [Aman Kumar Thakur](https://www.linkedin.com/in/amankumarthakur1)
 
+## 📜 License
+This project is licensed under the **MIT License**.  
+See the full license [here](https://github.com/ThakurAmanKumar/License/blob/main/LICENSE).
+
 ---
 Made with ❤️ by Aman Kumar Thakur
