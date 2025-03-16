@@ -121,28 +121,21 @@ document.addEventListener('DOMContentLoaded', () => {
 });
 
 
-
-
 document.addEventListener('DOMContentLoaded', () => {
-    // Select the download button by its ID
-    const downloadCvButton = document.getElementById('downloadCvButton');
-  
-    // Ensure the browser starts the download instead of opening the file
-    downloadCvButton.addEventListener('click', (e) => {
-      e.preventDefault(); // Prevents the default action of opening the file
-  
-      // Manually trigger a download action
-      const link = document.createElement('a');
-      link.href = 'CV_AmanKumarThakur.pdf'; // Path to the file
-      link.download = 'AmanKumarThakur_CV.pdf'; // Name for the downloaded file
-      link.click(); // Trigger the click event to start the download
-  
-      // Log for debugging (optional)
-      console.log('Download initiated');
-    });
+  const viewResumeButton = document.getElementById('viewResumeButton');
+
+  if (!viewResumeButton) {
+      console.error("Error: viewResumeButton element not found in the DOM.");
+      return; // Exit if button is missing
+  }
+
+  viewResumeButton.addEventListener('click', (e) => {
+      console.log('Resume viewed in a new tab.');
   });
-  
-  // Professional Line-by-Line Scroll Animation
+});
+
+
+// Professional Line-by-Line Scroll Animation
 const observer = new IntersectionObserver((entries, observer) => {
   entries.forEach(entry => {
     if (entry.isIntersecting) {
@@ -162,22 +155,24 @@ const observer = new IntersectionObserver((entries, observer) => {
 }, { threshold: 0.2 }); // Trigger when 20% of section is visible
 
 document.addEventListener("DOMContentLoaded", () => {
-  // Create a script element for JSON-LD structured data
-  const jsonLdScript = document.createElement("script");
-  jsonLdScript.type = "application/ld+json";
-  jsonLdScript.text = JSON.stringify({
-    "@context": "https://schema.org",
-    "@type": "WebSite",
-    "name": "Aman Kumar Thakur",
-    "url": "https://amankumarthakur.com.np"
-  });
+  // ✅ Fix JSON-LD Structured Data (Ensuring it's only added once)
+  if (!document.querySelector('script[type="application/ld+json"]')) {
+      const jsonLdScript = document.createElement("script");
+      jsonLdScript.type = "application/ld+json";
+      jsonLdScript.textContent = JSON.stringify({
+          "@context": "https://schema.org",
+          "@type": "Person",
+          "name": "Aman Kumar Thakur",
+          "alternateName": "amankumarthakur.com.np",
+          "url": "https://amankumarthakur.com.np"
+      });
+      document.head.appendChild(jsonLdScript);
+  }
 
-  // Append it to the <head> section
-  document.head.appendChild(jsonLdScript);
-});
-
-
-// Observe all sections for staggered animation
-document.querySelectorAll('section').forEach(section => {
-  observer.observe(section);
+  // ✅ Ensure `observer` is defined before using it
+  if (typeof observer !== "undefined") {
+      document.querySelectorAll("section").forEach(section => observer.observe(section));
+  } else {
+      console.error("Intersection Observer not found. Ensure it's defined before use.");
+  }
 });
